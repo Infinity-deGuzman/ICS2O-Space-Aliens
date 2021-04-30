@@ -8,7 +8,7 @@
 
 class SplashScene extends Phaser.Scene {
   constructor () {
-    super ({key: 'splashScene'})
+    super({key: 'splashScene'})
   }
 
   init (data) {
@@ -16,7 +16,7 @@ class SplashScene extends Phaser.Scene {
   }
 
   preload () {
-    console log('Splash Scene')
+    console.log('Splash Scene')
   }
 
   create (data) {
