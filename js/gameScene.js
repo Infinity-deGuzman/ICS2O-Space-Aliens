@@ -21,10 +21,10 @@ class GameScene extends Phaser.Scene {
 
   constructor () {
     super({key: 'gameScene'})
-
+    
     this.backgroundImage = null
     this.ship = null
-		this.fireMissile = false
+    this.fireMissile = false
     this.score = 0
     this.scoreText = null
     this.scoreTextStyle = { font: '65px Arial', fill: '#fff', align: 'center' }
@@ -43,8 +43,8 @@ class GameScene extends Phaser.Scene {
     this.load.image('missile', 'assets/missile.png')
     this.load.image('alien', 'assets/alien.png')
 		// sound files
-		this.load.audio('laser', 'assets/laser1.wav')
-		this.load.audio('explosion', 'assets/barrelExploding.wav')
+    this.load.audio('laser', 'assets/laser1.wav')
+    this.load.audio('explosion', 'assets/barrelExploding.wav')
   }
 
   create (data) {
@@ -56,21 +56,21 @@ class GameScene extends Phaser.Scene {
     this.ship = this.physics.add.sprite(1920 / 2, 1080 - 100, 'ship')
 
 		// create a group for the missiles
-		this.missileGroup = this.physics.add.group()
+    this.missileGroup = this.physics.add.group()
 
     // create a group for the missiles
     this.alienGroup = this.add.group()
     this.createAlien()
 
 		// collision between missiles and aliens
-		this.physics.add.collider(this.missileGroup, this.alienGroup, function(missileCollide, alienCollide) {
-			alienCollide.destroy()
-			missileCollide.destroy()
-			this.sound.play('explosion')
+    this.physics.add.collider(this.missileGroup, this.alienGroup, function(missileCollide, alienCollide) {
+      alienCollide.destroy()
+      missileCollide.destroy()
+      this.sound.play('explosion')
       this.score = this.score + 1
-      this.scoreText.setText('Score: ' + this.score.toString())
-			this.createAlien()
-			this.createAlien()
+      this.scoreText.setText('Score: '      this.score.toString())
+      this.createAlien()
+      this.createAlien()
 		}.bind (this))
   }
 
@@ -78,7 +78,7 @@ class GameScene extends Phaser.Scene {
     // called 60x a second
     const keyLeftObj = this.input.keyboard.addKey('LEFT')
     const keyRightObj = this.input.keyboard.addKey('RIGHT')
-		const keySpaceObj = this.input.keyboard.addKey('SPACE')
+    const keySpaceObj = this.input.keyboard.addKey('SPACE')
 
     if (keyLeftObj.isDown === true) {
       this.ship.x = this.ship.x -= 15
